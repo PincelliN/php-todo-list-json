@@ -10,7 +10,8 @@ createApp({
   },
   methods: {
     getApi() {
-      console.log("get Api");
+      console.log("lol");
+
       axios.get(this.apiUrl).then((response) => {
         console.log(response.data);
       });

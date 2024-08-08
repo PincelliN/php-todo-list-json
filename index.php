@@ -15,8 +15,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.3/axios.min.js"
         integrity="sha512-zJXKBryKlsiDaWcWQ9fuvy50SG03/Qc5SqfLXxHmk9XiUUbcD9lXYjHDBxLFOuZSU6ULXaJ69bd7blSMEgxXNQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- link vue -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
 
     <title>To do list php</title>
 </head>
@@ -51,7 +51,9 @@
             </div>
         </div>
     </div>
-    <script src="main.js"></script>
+    <!-- link vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="Text/Javascript" src="main.js"></script>
 </body>
 
 </html>

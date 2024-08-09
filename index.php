@@ -40,10 +40,16 @@
                 </div>
                 <div class="col-8 mx-auto d-flex align-items-center">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="element" name='element'
-                            aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <textarea name="description" class="form-control" placeholder="description"></textarea>
-                        <button class="btn btn-outline-warning" type="submit" id="button-addon2">Inserisci</button>
+                        <form action="#" method="post">
+                            <input type="text" class="form-control" placeholder="element" name='element'
+                                aria-label="Recipient's username" aria-describedby="button-addon2"
+                                v-model.trim='toDoElement'>
+
+                            <textarea name="description" class="form-control" placeholder="description"
+                                v-model.trim='toDoDescription'></textarea>
+                            <button @click='updatelement' class="btn btn-outline-warning" type="bottom"
+                                id="button-addon2">Inserisci</button>
+                        </form>
                     </div>
                 </div>
 

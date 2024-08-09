@@ -12,6 +12,15 @@ $arraylist=json_decode($array);
 /* var_dump($arraylist); */
 
 
+//se entrambi i post esistono aggiorno i file JSON
+if((isset($_POST['toDoElement']))&&(isset($_POST['toDoDescription']))){
+ $todoItem=[false,$_POST['toDoElement'],$_POST['toDoDescription']];
+ //aggiungo il nuovo elemento alla lista
+ $arraylist=$todoItem;
+ //sovrascrivo il json 
+ file_put_contents('server.json',json_encode($arraylist));
+
+};
 
 
 

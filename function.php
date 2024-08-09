@@ -9,7 +9,7 @@ $array= file_get_contents('server.json');
 $arraylist=json_decode($array);
 
 //inseriamo logica ,manipolazione e aggiornamento del json
-var_dump($arraylist);
+/* var_dump($arraylist); */
 
 
 

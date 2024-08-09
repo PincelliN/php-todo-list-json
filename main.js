@@ -1,19 +1,17 @@
-console.log("Script loaded");
-
 const { createApp } = Vue;
 
 createApp({
   data() {
     return {
       apiUrl: "function.php",
+      list: [],
     };
   },
   methods: {
     getApi() {
-      console.log("lol");
-
       axios.get(this.apiUrl).then((response) => {
         console.log(response.data);
+        this.list = response.data;
       });
     },
   },

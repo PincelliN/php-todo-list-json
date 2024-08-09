@@ -28,9 +28,9 @@
                 <div class="col-8 mx-auto text-center text-uppercase mt-3">
                     <h1>To do List</h1>
                 </div>
-                <div class="col-8 mx-auto my-5">
+                <div v-for="(element,index) in this.list" class="col-8 mx-auto my-5">
                     <div class="row  d-flex border align-items-center">
-                        <div class="col-10 ">HTML</div>
+                        <div class="col-10 ">{{element[1]}}</div>
                         <div class="col-2 d-inline">
                             <button class='btn btn-danger text-center'><i class="fa-solid fa-trash"></i></button>
                             <button class='btn btn-warning text-center'><i class="fa-solid fa-eye"></i></button>

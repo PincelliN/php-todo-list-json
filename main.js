@@ -16,6 +16,7 @@ createApp({
         this.list = response.data;
       });
     },
+    /* cambiuare stato ad un elemento */
     changeStatus(index) {
       const changeStat = {
         changeStat: index,
@@ -28,7 +29,7 @@ createApp({
           this.list = response.data;
         });
     },
-
+    /* aggiungere un elemento */
     updatelist() {
       const data = {
         toDoTitle: this.toDoTitle,
@@ -46,6 +47,7 @@ createApp({
           this.toDoDescription = "";
         });
     },
+    /* eliminare un elemento  */
     removeitem(index) {
       const indexRem = {
         indexRem: index,

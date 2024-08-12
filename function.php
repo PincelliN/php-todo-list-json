@@ -1,27 +1,54 @@
 <?php
 
-//prendo il file json e lo trasformo in un array di array
-$array= file_get_contents('server.json');
+//prendo il file json e lo trasformo in un array di oggetti
+$object= file_get_contents('server.json');
 
 
-//trasformo la stinga in un elemento php
+//trasformo la l array in un elemento php
 
-$arraylist=json_decode($array);
+$objectlist=json_decode($object);
+
 
 //inseriamo logica ,manipolazione e aggiornamento del json
-/* var_dump($arraylist); */
+
+
+
+    
+    // Debugging: stampa l'arraylist e l'elemento aggiunto
+if(isset($_POST['changeStat'])){
+    $index=$_POST['changeStat'];
+
+    //accedo alla propietà state attraverso '->' e non più attraverso il '.'
+if($objectlist[$index]->state===false){
+        $objectlist[$index]->state=true;
+    }else{
+        $objectlist[$index]->state=false;
+    }; 
+// Aggiorna il file JSON dopo la modifica
+    file_put_contents('server.json', json_encode($objectlist));
+};
+  
+
+
+
 
 
 //se entrambi i post esistono aggiorno i file JSON
-if((isset($_POST['toDoElement']))&&(isset($_POST['toDoDescription']))){
- $todoItem=[false,$_POST['toDoElement'],$_POST['toDoDescription']];
+/* if((isset($_POST['toDoElement']))&&(isset($_POST['toDoDescription']))){
+
+$toDoElement=$_POST['toDoElement'];
+$toDoDescription=$_POST['toDoDescription'];
+
+
+
+ $todoItems=[false,$toDoElement,$toDoDescription]; */
  //aggiungo il nuovo elemento alla lista
- $arraylist=$todoItem;
+/*  $arraylist[]=$todoItems; */
  //sovrascrivo il json 
- file_put_contents('server.json',json_encode($arraylist));
+/*  file_put_contents('server.json',json_encode($arraylist));
 
 };
-
+ */
 
 
 
@@ -38,4 +65,4 @@ if((isset($_POST['toDoElement']))&&(isset($_POST['toDoDescription']))){
 
 header('Content-type: application/json');
 //stampo l elemento PHP come stringa
-echo json_encode($arraylist);
+echo json_encode($objectlist);

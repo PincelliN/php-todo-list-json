@@ -1,17 +1,1 @@
-[
-    [
-        false,
-        "HTML",
-        "HTML is the standard markup language for Web pages."
-    ],
-    [
-        false,
-        "Css",
-        "CSS is the language we use to style an HTML document."
-    ],
-    [
-        false,
-        "JavaScript ",
-        "JavaScript is the world's most popular programming language."
-    ]
-]
+[{"state":false,"title":"HTML","description":"HTML is the standard markup language for Web pages."},{"state":false,"title":"CSS","description":"CSS is the language we use to style an HTML document."},{"state":false,"title":"JavaScript","description":"JavaScript is the world's most popular programming language.JavaScript is the programming language of the Web."}]

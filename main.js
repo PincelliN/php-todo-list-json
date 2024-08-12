@@ -5,8 +5,6 @@ createApp({
     return {
       apiUrl: "function.php",
       list: [],
-      toDoElement: "",
-      toDoDescription: "",
     };
   },
   methods: {
@@ -16,8 +14,21 @@ createApp({
         this.list = response.data;
       });
     },
-    updatelement() {
+    changeStatus(index) {
+      const changeStat = {
+        changeStat: index,
+      };
+      axios
+        .post(this.apiUrl, changeStat, {
+          headers: { "Content-Type": "multipart/form-data" },
+        })
+        .then((response) => {
+          this.list = response.data;
+        });
+    },
+    /* updatelement() {
       const data = {
+        status: false,
         toDoElement: this.toDoElement,
         toDoDescription: this.toDoDescription,
       };
@@ -29,7 +40,7 @@ createApp({
           console.log(response.data);
           this.list = response.data;
         });
-    },
+    }, */
   },
   mounted() {
     this.getApi();

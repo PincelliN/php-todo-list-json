@@ -33,8 +33,8 @@
                         <div @click='changeStatus(index)' class="col-10 "
                             :class='element.state === true? "text-decoration-line-through":""'>{{element.title}}</div>
                         <div class="col-2 d-inline">
-                            <button v-show='element.state === true' class='btn btn-danger text-center'><i
-                                    class="fa-solid fa-trash"></i></button>
+                            <button v-show='element.state === true' @click='removeitem(index)'
+                                class='btn btn-danger text-center'><i class="fa-solid fa-trash"></i></button>
                             <button class='btn btn-warning text-center'><i class="fa-solid fa-eye"></i></button>
                         </div>
 
@@ -42,12 +42,14 @@
                 </div>
                 <div class="col-8 mx-auto d-flex align-items-center">
                     <div class="input-group mb-3">
-                        <form action="index.php" method="Post">
-                            <input type="text" class="form-control" placeholder="element" name='element'
-                                aria-label="Recipient's username" aria-describedby="button-addon2">
-                            <textarea name="description" class="form-control" placeholder="description"></textarea>
-                            <button class="btn btn-outline-warning" type="bottom" id="button-addon2">Inserisci</button>
-                        </form>
+
+                        <input v-model="toDoTitle" type="text" class="form-control" placeholder="element" name='element'
+                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <textarea v-model="toDoDescription" name="description" class="form-control"
+                            placeholder="description"></textarea>
+                        <button @click='updatelist' class="btn btn-outline-warning" type="bottom"
+                            id="button-addon2">Inserisci</button>
+
                     </div>
                 </div>
 

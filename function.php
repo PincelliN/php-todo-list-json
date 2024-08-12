@@ -14,7 +14,7 @@ $objectlist=json_decode($object);
 
 
     
-    // Debugging: stampa l'arraylist e l'elemento aggiunto
+    // cambio del valore della propietà state
 if(isset($_POST['changeStat'])){
     $index=$_POST['changeStat'];
 
@@ -34,21 +34,31 @@ if($objectlist[$index]->state===false){
 
 
 //se entrambi i post esistono aggiorno i file JSON
-/* if((isset($_POST['toDoElement']))&&(isset($_POST['toDoDescription']))){
 
-$toDoElement=$_POST['toDoElement'];
-$toDoDescription=$_POST['toDoDescription'];
+ if((isset($_POST['toDoTitle']) && isset($_POST['toDoDescription']))){
 
-
-
- $todoItems=[false,$toDoElement,$toDoDescription]; */
- //aggiungo il nuovo elemento alla lista
-/*  $arraylist[]=$todoItems; */
- //sovrascrivo il json 
-/*  file_put_contents('server.json',json_encode($arraylist));
-
+$newItem =(object) [
+    "state" => false,
+    "title" => $_POST['toDoTitle'],
+    "description" => $_POST['toDoDescription']
+];
+ // Aggiungo il nuovo elemento alla lista 
+$objectlist[]=$newItem;
+  // Sovrascrivo il vecchio file JSON
+    file_put_contents('server.json', json_encode($objectlist));
 };
- */
+
+// Se esiste indextoRemove allora vado a rimuovere l'elemento corrispondente
+if (isset($_POST['indexRem'])) {
+    $index = $_POST['indexRem'];
+        unset($objectlist[$index]);
+        // Ricostruisci l'array per rimuovere eventuali buchi negli indici
+        $objectlist = array_values($objectlist);
+        // Sovrascrivo il vecchio file JSON
+        file_put_contents('server.json', json_encode($objectlist));
+}
+
+
 
 
 

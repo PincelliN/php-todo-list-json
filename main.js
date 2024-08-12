@@ -5,6 +5,8 @@ createApp({
     return {
       apiUrl: "function.php",
       list: [],
+      toDoTitle: "",
+      toDoDescription: "",
     };
   },
   methods: {
@@ -26,21 +28,37 @@ createApp({
           this.list = response.data;
         });
     },
-    /* updatelement() {
+
+    updatelist() {
       const data = {
-        status: false,
-        toDoElement: this.toDoElement,
+        toDoTitle: this.toDoTitle,
         toDoDescription: this.toDoDescription,
       };
+      console.log(data);
       axios
         .post(this.apiUrl, data, {
-          header: { "Content-type": "multipart/form-data" },
+          headers: { "Content-type": "multipart/form-data" },
+        })
+        .then((response) => {
+          console.log(response.data);
+          this.list = response.data;
+          this.toDoTitle = "";
+          this.toDoDescription = "";
+        });
+    },
+    removeitem(index) {
+      const indexRem = {
+        indexRem: index,
+      };
+      axios
+        .post(this.apiUrl, indexRem, {
+          headers: { "Content-Type": "multipart/form-data" },
         })
         .then((response) => {
           console.log(response.data);
           this.list = response.data;
         });
-    }, */
+    },
   },
   mounted() {
     this.getApi();

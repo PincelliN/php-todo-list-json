@@ -52,17 +52,6 @@ if (isset($_POST['indexRem'])) {
     file_put_contents('server.json', json_encode($objectlist));
 }
 
-
-
-
-
-
-
-
-
-
-
-
 //restituisco il json letto da js
 
 //modifico lheader del file in modo da  interpretarlo come json

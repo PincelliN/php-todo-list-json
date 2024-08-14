@@ -35,7 +35,7 @@
                         <div class="col-2 d-inline">
                             <button v-show='element.state === true' @click='removeitem(index)'
                                 class='btn btn-danger text-center'><i class="fa-solid fa-trash"></i></button>
-                            <a :href="'description.php?id=' + index" class='btn btn-warning text-center'><i
+                            <a :href="'description.php?id='+ index" class='btn btn-warning text-center'><i
                                     class="fa-solid fa-eye"></i></a>
                         </div>
 

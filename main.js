@@ -30,6 +30,13 @@ createApp({
         });
     },
     /* aggiungere un elemento */
+    /* 
+    const data = new FormData();
+     data.append('toDoTitle': this.toDoTitle);
+     data.append('toDoDescription': this.toDoDescription);
+     scritto in questo modo non abbiamo bisogno del headers
+     */
+
     updatelist() {
       const data = {
         toDoTitle: this.toDoTitle,
